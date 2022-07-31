@@ -1,20 +1,34 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
+import { FcShop } from "react-icons/fc";
 function Navbar() {
   return (
     <>
-      <header className="bg-white/50 backdrop-blur-sm shadow-sm sticky top-0 z-50">
-        <nav className="container flex justify-between py-5 items-center mx-auto">
+      <header className="bg-white/50 backdrop-blur-sm shadow-md sticky top-0 z-50">
+        <nav className="container flex justify-between  py-5 items-center mx-auto">
           <div className="logo">
-            <span className="font-semibold text-lg">SHOPPING CART</span>
+            <img
+              className="flex items-center gap-5 font-semibold text-lg w-[15%]"
+              src="./assets/medusa.svg"
+            />
           </div>
           <ul className="flex gap-5 text-lg font-semibold items-center">
-            <NavLink to="/">Products</NavLink>
+            <NavLink to="/">
+              {({ isActive }) => (
+                <div
+                  className={`transition ${
+                    isActive ? "border-b-2 border-purple-500 " : ""
+                  }`}
+                >
+                  <FcShop className="text-3xl" />
+                </div>
+              )}
+            </NavLink>
             <NavLink to="/cart">
-              <div className="bg-yellow-500 px-5 py-2 rounded-lg flex items-center gap-3">
+              <div className="bg-purple-500/30 border border-purple-500 px-5 py-2 rounded-lg flex items-center gap-3">
                 <span>0</span>
-                <BsFillCartFill />
+                <BsFillCartFill className="" />
               </div>
             </NavLink>
           </ul>
