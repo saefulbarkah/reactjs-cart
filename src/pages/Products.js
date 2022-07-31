@@ -6,6 +6,9 @@ import { AiFillStar, AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
+import AOS from "aos";
+import "aos/dist/aos.css";
+
 function Products() {
   //List State
   const [products, setProducts] = useState([]);
@@ -35,23 +38,40 @@ function Products() {
     // eslint-disable-next-line
   }, []);
 
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <>
       <section>
-        <div className="page-title text-center py-5">
-          <h2 className="text-2xl font-semibold">Products</h2>
-        </div>
+        <h2
+          className="font-semibold text-3xl text-center py-5"
+          data-aos="fade-up"
+        >
+          Produk
+        </h2>
         {loading === true && (
           <div className="loading flex justify-center items-center animate-spin py-20">
             <AiOutlineLoading3Quarters className="text-7xl" />
           </div>
         )}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
           {loading === false &&
             products.map((item, i) => (
-              <div className="card shadow-xl rounded-3xl" key={i}>
+              <div
+                className="card shadow-xl rounded-3xl flex flex-col justify-between"
+                key={i}
+                data-aos="fade-up"
+              >
                 <div className="card-title flex justify-center items-center py-10 border-b h-[250px]">
-                  <img src={item.image} alt="" className="w-4/12" />
+                  <img
+                    src={item.image}
+                    alt=""
+                    className="w-4/12"
+                    data-aos="fade-zoom-in"
+                  />
                 </div>
                 <div className="card-body flex flex-col justify-center items-center py-2 px-5 text-center text-ellipsis">
                   <span className="text-lg mb-5">{item.title}</span>
