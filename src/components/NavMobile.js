@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
 import { BsFillCartFill } from "react-icons/bs";
 import { FcShop } from "react-icons/fc";
+import { useSelector } from "react-redux";
 function NavMobile() {
+  const [cartCount, setCart] = useState(0);
+  const cart = useSelector((state) => state.cart);
   return (
     <>
       <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 md:hidden flex flex-col">
@@ -30,7 +33,7 @@ function NavMobile() {
           </NavLink>
           <NavLink to="/cart">
             <div className="bg-orange-500/30 border border-orange-500 text-orange-700  px-2 py-2 rounded-lg flex items-center gap-1">
-              <span>100</span>
+              <span>{cartCount + cart.cartItem.length}</span>
               <BsFillCartFill className="" />
             </div>
           </NavLink>

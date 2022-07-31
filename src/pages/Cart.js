@@ -5,14 +5,22 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import { useDispatch } from "react-redux/es/exports";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { clearCart } from "../features/cartSlice";
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
   const [aos, setAos] = useState();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  const handleClear = () => {
+    dispatch(clearCart());
+    console.log("HEHE");
+  };
 
   const handleToProduct = () => {
     setLoading(true);
@@ -50,8 +58,9 @@ function Cart() {
           <div className="card-empty flex flex-col justify-center items-center">
             <p className="text-2xl">Your cart is currently empty</p>
             {loading === true && (
-              <p className="py-5" data-aos="fade-in">
-                Anda akan di arahkan ke halaman product selama {counter} detik
+              <p className="py-5 px-10 text-center" data-aos="fade-in">
+                Anda akan di arahkan ke halaman product selama
+                <span className="font-bold"> {counter}</span> detik
               </p>
             )}
             <div className="cart-shopping py-5">
@@ -133,7 +142,10 @@ function Cart() {
                     <button className="bg-blue-600 text-white px-10 rounded-lg py-2">
                       Bayar
                     </button>
-                    <button className="bg-blue-600 text-white px-10 rounded-lg py-2">
+                    <button
+                      className="bg-red-600 text-white px-10 rounded-lg py-2"
+                      onClick={() => handleClear()}
+                    >
                       Hapus keranjang
                     </button>
                   </div>
