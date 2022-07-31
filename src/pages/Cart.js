@@ -7,8 +7,6 @@ import { FaTrash } from "react-icons/fa";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
 function Cart() {
   const cart = useSelector((state) => state.cart);
-  const total = cart.cartItem.reduce((a, v) => (a = a + v.price));
-  console.log(total);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
   const navigate = useNavigate();
@@ -121,6 +119,9 @@ function Cart() {
                   <div className="total py-5 px-10 flex items-center  justify-end gap-5">
                     <button className="bg-blue-600 text-white px-10 rounded-lg py-2">
                       Bayar
+                    </button>
+                    <button className="bg-blue-600 text-white px-10 rounded-lg py-2">
+                      Hapus keranjang
                     </button>
                   </div>
                 </div>
