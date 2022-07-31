@@ -45,7 +45,7 @@ function Products() {
   }, []);
   return (
     <>
-      <section>
+      <section className="py-10">
         <h2
           className="font-semibold text-3xl text-center py-5"
           data-aos="fade-up"

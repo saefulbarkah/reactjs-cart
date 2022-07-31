@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <ToastContainer />
       <Navbar />
-      <div className="main container mx-auto py-5 mb-10">
+      <div className="main container mx-auto mb-10">
         <Routes>
           <Route exact path="/" element={<Products />}></Route>
           <Route exact path="/cart" element={<Cart />}></Route>

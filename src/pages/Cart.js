@@ -5,14 +5,18 @@ import { AiOutlineLoading3Quarters } from "react-icons/ai";
 import { useNavigate } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import { AiOutlinePlus, AiOutlineMinus } from "react-icons/ai";
+import AOS from "aos";
+import "aos/dist/aos.css";
 function Cart() {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
+  const [aos, setAos] = useState();
   const navigate = useNavigate();
 
   const handleToProduct = () => {
     setLoading(true);
+    setAos("fade-bottom");
     setCounter(5);
     setTimeout(() => {
       navigate("/");
@@ -29,28 +33,37 @@ function Cart() {
       }, 1000);
     // eslint-disable-next-line
   });
+
+  useEffect(() => {
+    AOS.init({
+      duration: 1000,
+    });
+  }, []);
   return (
     <>
-      <section>
+      <section
+        className="h-screen flex flex-col justify-center"
+        data-aos="fade-up"
+      >
         <h2 className="font-semibold text-3xl text-center py-5">Keranjang</h2>
         {cart.cartItem.length === 0 ? (
-          <div className="card-empty flex flex-col justify-center items-center py-24">
+          <div className="card-empty flex flex-col justify-center items-center">
             <p className="text-2xl">Your cart is currently empty</p>
             {loading === true && (
-              <p className="py-10">
+              <p className="py-5" data-aos="fade-in">
                 Anda akan di arahkan ke halaman product selama {counter} detik
               </p>
             )}
-            <div className="cart-shopping">
+            <div className="cart-shopping py-5">
               <div onClick={handleToProduct}>
-                <div className="bg-blue-600 py-3 shadow-xl rounded-lg px-5 flex text-white gap-2 items-center font-semibold hover:bg-blue-700 transition-all">
+                <button className="bg-blue-600 py-3 shadow-xl rounded-lg px-5 flex text-white gap-2 items-center font-semibold hover:bg-blue-700 transition">
                   {loading ? (
                     <AiOutlineLoading3Quarters className="animate-spin text-xl font-bold transition-all" />
                   ) : (
                     <FaShoppingCart />
                   )}
-                  <button>Continue shopping</button>
-                </div>
+                  Continue shopping
+                </button>
               </div>
             </div>
           </div>
