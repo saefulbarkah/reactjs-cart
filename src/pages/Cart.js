@@ -12,7 +12,7 @@ import { clearCart } from "../features/cartSlice";
 function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
-  const [counter, setCounter] = useState(0);
+  const [counter, setCounter] = useState(3);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,10 +23,10 @@ function Cart({ title }) {
 
   const handleToProduct = () => {
     setLoading(true);
-    setCounter(5);
+    console.log(counter);
     setTimeout(() => {
       navigate("/");
-    }, 5000);
+    }, counter * 1000);
   };
 
   console.log(cart.cartItem);
@@ -42,7 +42,7 @@ function Cart({ title }) {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 500,
     });
   }, []);
 

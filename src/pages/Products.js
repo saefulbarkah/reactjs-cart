@@ -22,7 +22,6 @@ function Products({ title }) {
     const base_url = "https://fakestoreapi.com/products";
     axios.get(base_url).then(function (res) {
       setProducts(res.data);
-      console.log(products);
       setLoading(false);
     });
   };
@@ -40,7 +39,7 @@ function Products({ title }) {
 
   useEffect(() => {
     AOS.init({
-      duration: 1000,
+      duration: 800,
     });
   }, []);
 
