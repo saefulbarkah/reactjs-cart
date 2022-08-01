@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux/es/exports";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import { clearCart } from "../features/cartSlice";
-function Cart() {
+function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
@@ -47,6 +47,10 @@ function Cart() {
       duration: 1000,
     });
   }, []);
+
+  useEffect(() => {
+    document.title = title;
+  });
   return (
     <>
       <section

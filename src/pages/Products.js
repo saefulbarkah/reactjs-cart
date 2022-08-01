@@ -9,7 +9,7 @@ import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-function Products() {
+function Products({ title }) {
   //List State
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -43,6 +43,10 @@ function Products() {
       duration: 1000,
     });
   }, []);
+
+  useEffect(() => {
+    document.title = title;
+  });
   return (
     <>
       <section className="py-10">
