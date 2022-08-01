@@ -5,7 +5,6 @@ import { IoLogoUsd } from "react-icons/io";
 import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
-import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import LoaderProduct from "../components/LoaderProduct";
@@ -15,7 +14,6 @@ function Products({ title }) {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   // fetching data from API
   const getAllProducts = () => {
@@ -30,7 +28,6 @@ function Products({ title }) {
   // addCart
   const handleAddToCart = (item) => {
     dispatch(addToCart(item));
-    navigate("/cart");
   };
 
   useEffect(() => {

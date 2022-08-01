@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillShopping } from "react-icons/ai";
 import NavMobile from "./NavMobile";
-// import { useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 function Navbar() {
-  // const [cartCount, setCart] = useState(0);
-  // const cart = useSelector((state) => state.cart);
+  const [cartCount, setCart] = useState(0);
+  const cart = useSelector((state) => state.cart);
+  const cartCounter = () => {
+    setCart(cart.cartItem.length);
+  };
+  useEffect(() => {
+    cartCounter();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  });
   return (
     <>
       <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 hidden md:block">
@@ -26,7 +33,7 @@ function Navbar() {
                   }`}
                 >
                   <AiFillShopping className="text-3xl" />
-                  <span className="text-sm transition">Keranjang</span>
+                  <span className="text-sm transition">Produk</span>
                 </div>
               )}
             </NavLink>
@@ -39,7 +46,12 @@ function Navbar() {
                       : "text-gray-400 hover:text-pink-500 hover:-translate-y-[1px]"
                   }`}
                 >
-                  <FaShoppingCart className={`text-3xl `} />
+                  {cartCount > 0 && (
+                    <span className="absolute z-10 text-white bg-blue-500 px-2 text-sm -right-2 -top-2 rounded-full">
+                      {cartCount}
+                    </span>
+                  )}
+                  <FaShoppingCart className={`text-3xl`} />
                   <span className="text-sm transition">Keranjang</span>
                 </div>
               )}
