@@ -52,7 +52,7 @@ function Cart({ title }) {
   return (
     <>
       <section
-        className="md:h-[500px] h-[450px] flex flex-col justify-center overflow-hidden"
+        className="md:h-[500px] h-[450px] flex flex-col justify-center"
         data-aos="fade-up"
       >
         <h2 className="font-semibold text-3xl text-center py-5">Keranjang</h2>
