@@ -23,7 +23,7 @@ function NavMobile() {
           <NavLink to="/">
             {({ isActive }) => (
               <div
-                className={`flex items-center flex-col transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                className={`flex items-center flex-col transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 active:bg-pink-500/20 rounded-lg px-2 ${
                   isActive
                     ? "text-pink-500 scale-110 -translate-y-1"
                     : "text-gray-400 "
@@ -37,7 +37,7 @@ function NavMobile() {
           <NavLink to="/cart">
             {({ isActive }) => (
               <div
-                className={`flex items-center flex-col justify-center transition ease-in-out duration-150 drop-shadow-lg ${
+                className={`flex items-center flex-col justify-center transition ease-in-out duration-150 drop-shadow-lg active:bg-pink-500/20 rounded-lg px-2 ${
                   isActive
                     ? "text-pink-500 scale-100 -translate-y-1"
                     : "text-gray-400"
