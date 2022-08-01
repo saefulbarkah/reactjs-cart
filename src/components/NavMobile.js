@@ -1,11 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
 import { FaShoppingCart } from "react-icons/fa";
 import { AiFillShopping } from "react-icons/ai";
-import { useSelector } from "react-redux";
 function NavMobile() {
-  const [cartCount, setCart] = useState(0);
-  const cart = useSelector((state) => state.cart);
   return (
     <>
       <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 md:hidden flex flex-col">

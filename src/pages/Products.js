@@ -8,6 +8,7 @@ import { addToCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import LoaderProduct from "../components/LoaderProduct";
 
 function Products({ title }) {
   //List State
@@ -56,8 +57,25 @@ function Products({ title }) {
           Produk
         </h2>
         {loading === true && (
-          <div className="loading flex justify-center items-center animate-spin py-20">
-            <AiOutlineLoading3Quarters className="text-7xl" />
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
+            <div
+              className="card shadow-xl rounded-3xl w-full h-[397px]"
+              data-aos="fade-up"
+            >
+              <LoaderProduct />
+            </div>
+            <div
+              className="card shadow-xl rounded-3xl w-full h-[397px]"
+              data-aos="fade-up"
+            >
+              <LoaderProduct />
+            </div>
+            <div
+              className="card shadow-xl rounded-3xl w-full h-[397px]"
+              data-aos="fade-up"
+            >
+              <LoaderProduct />
+            </div>
           </div>
         )}
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-3">
@@ -66,7 +84,7 @@ function Products({ title }) {
               <div
                 className="card shadow-xl rounded-3xl flex flex-col justify-between"
                 key={i}
-                data-aos="fade-up"
+                data-aos="fade-in"
               >
                 <div className="card-title flex justify-center items-center py-10 border-b h-[250px]">
                   <img
