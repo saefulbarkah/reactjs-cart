@@ -1,12 +1,12 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { NavLink } from "react-router-dom";
-import { BsFillCartFill } from "react-icons/bs";
-import { FcShop } from "react-icons/fc";
+import { FaShoppingCart } from "react-icons/fa";
+import { AiFillShopping } from "react-icons/ai";
 import NavMobile from "./NavMobile";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 function Navbar() {
-  const [cartCount, setCart] = useState(0);
-  const cart = useSelector((state) => state.cart);
+  // const [cartCount, setCart] = useState(0);
+  // const cart = useSelector((state) => state.cart);
   return (
     <>
       <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 hidden md:block">
@@ -19,19 +19,28 @@ function Navbar() {
             <NavLink to="/">
               {({ isActive }) => (
                 <div
-                  className={`transition ${
-                    isActive ? "border-b-2 border-purple-500 " : ""
+                  className={`transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                    isActive
+                      ? "text-pink-500 scale-110 -translate-y-1"
+                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-1"
                   }`}
                 >
-                  <FcShop className="text-3xl" />
+                  <AiFillShopping className="text-3xl" />
                 </div>
               )}
             </NavLink>
             <NavLink to="/cart">
-              <div className="bg-orange-500/30 border border-orange-500 text-orange-700  px-2 py-2 rounded-lg flex items-center gap-1">
-                <span>{cartCount + cart.cartItem.length}</span>
-                <BsFillCartFill className="" />
-              </div>
+              {({ isActive }) => (
+                <div
+                  className={`transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                    isActive
+                      ? "text-pink-500 scale-110 -translate-y-1"
+                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-1"
+                  }`}
+                >
+                  <FaShoppingCart className={`text-3xl `} />
+                </div>
+              )}
             </NavLink>
           </ul>
         </nav>

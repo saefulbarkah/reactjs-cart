@@ -13,7 +13,6 @@ function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
   const [counter, setCounter] = useState(0);
-  const [aos, setAos] = useState();
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -24,7 +23,6 @@ function Cart({ title }) {
 
   const handleToProduct = () => {
     setLoading(true);
-    setAos("fade-bottom");
     setCounter(5);
     setTimeout(() => {
       navigate("/");

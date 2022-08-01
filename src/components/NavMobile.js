@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { NavLink } from "react-router-dom";
-import { BsFillCartFill } from "react-icons/bs";
-import { FcShop } from "react-icons/fc";
+import { FaShoppingCart } from "react-icons/fa";
+import { AiFillShopping } from "react-icons/ai";
 import { useSelector } from "react-redux";
 function NavMobile() {
   const [cartCount, setCart] = useState(0);
@@ -23,19 +23,32 @@ function NavMobile() {
           <NavLink to="/">
             {({ isActive }) => (
               <div
-                className={`transition ${
-                  isActive ? "border-b-2 border-purple-500 " : ""
+                className={`flex items-center flex-col transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                  isActive
+                    ? "text-pink-500 scale-110 -translate-y-1"
+                    : "text-gray-400 "
                 }`}
               >
-                <FcShop className="text-4xl" />
+                <AiFillShopping className="text-4xl" />
+                {isActive && <span className="text-sm transition">Produk</span>}
               </div>
             )}
           </NavLink>
           <NavLink to="/cart">
-            <div className="bg-orange-500/30 border border-orange-500 text-orange-700  px-2 py-2 rounded-lg flex items-center gap-1">
-              <span>{cartCount + cart.cartItem.length}</span>
-              <BsFillCartFill className="" />
-            </div>
+            {({ isActive }) => (
+              <div
+                className={`flex items-center flex-col justify-center transition ease-in-out duration-150 drop-shadow-lg ${
+                  isActive
+                    ? "text-pink-500 scale-100 -translate-y-1"
+                    : "text-gray-400"
+                }`}
+              >
+                <FaShoppingCart className={`text-4xl `} />
+                {isActive && (
+                  <span className="text-sm transition">Keranjang</span>
+                )}
+              </div>
+            )}
           </NavLink>
         </ul>
       </div>
