@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { BsFillCartFill } from "react-icons/bs";
 import { IoLogoUsd } from "react-icons/io";
-import { AiFillStar, AiOutlineLoading3Quarters } from "react-icons/ai";
+import { AiFillStar } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../features/cartSlice";
 import { useNavigate } from "react-router-dom";

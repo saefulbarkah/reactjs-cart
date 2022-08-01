@@ -12,7 +12,7 @@ import { clearCart } from "../features/cartSlice";
 function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
-  const [counter, setCounter] = useState(3);
+  const [counter, setCounter] = useState(0);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -23,10 +23,10 @@ function Cart({ title }) {
 
   const handleToProduct = () => {
     setLoading(true);
-    console.log(counter);
+    setCounter(3);
     setTimeout(() => {
       navigate("/");
-    }, counter * 1000);
+    }, 3000);
   };
 
   console.log(cart.cartItem);
