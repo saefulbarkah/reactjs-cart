@@ -15,30 +15,32 @@ function Navbar() {
             <img className="w-[10%]" src="./assets/medusa.svg" alt="web" />
             <span className="text-xl font-semibold">Shopping App</span>
           </div>
-          <ul className="flex gap-5 text-lg font-semibold items-center">
+          <ul className="flex gap-8 text-lg font-semibold items-center">
             <NavLink to="/">
               {({ isActive }) => (
                 <div
-                  className={`transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                  className={`flex flex-col items-center transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
                     isActive
-                      ? "text-pink-500 scale-110 -translate-y-1"
-                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-1"
+                      ? "text-pink-500 scale-110 -translate-y-[1px]"
+                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-[1px]"
                   }`}
                 >
                   <AiFillShopping className="text-3xl" />
+                  <span className="text-sm transition">Keranjang</span>
                 </div>
               )}
             </NavLink>
             <NavLink to="/cart">
               {({ isActive }) => (
                 <div
-                  className={`transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
+                  className={`flex flex-col items-center transition ease-in-out duration-300 drop-shadow-lg hover:scale-110 ${
                     isActive
-                      ? "text-pink-500 scale-110 -translate-y-1"
-                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-1"
+                      ? "text-pink-500 scale-110 -translate-y-[1px]"
+                      : "text-gray-400 hover:text-pink-500 hover:-translate-y-[1px]"
                   }`}
                 >
                   <FaShoppingCart className={`text-3xl `} />
+                  <span className="text-sm transition">Keranjang</span>
                 </div>
               )}
             </NavLink>

@@ -21,13 +21,15 @@ const cartSlice = createSlice({
       if (itemIndex >= 0) {
         state.cartItem[itemIndex].cartQuantity += 1;
         toast.info("Quantity product has been added", {
-          position: "bottom-left",
+          position: "top-center",
+          autoClose: 1000,
         });
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItem.push(tempProduct);
         toast.success("Product has been added to cart", {
-          position: "bottom-left",
+          position: "top-center",
+          autoClose: 1000,
         });
       }
 
@@ -36,7 +38,8 @@ const cartSlice = createSlice({
     clearCart(state, action) {
       state.cartItem = [];
       toast.success("Cart has been cleared", {
-        position: "bottom-left",
+        position: "top-center",
+        autoClose: 1000,
       });
       localStorage.setItem("cartItems", JSON.stringify(state.cartItem));
     },
