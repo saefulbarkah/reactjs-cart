@@ -59,7 +59,11 @@ function Cart({ title }) {
         parseFloat(data[i].price).toFixed(2) * parseInt(data[i].cartQuantity);
       console.log(parseFloat(total).toFixed(2));
     }
-    return parseFloat(total).toFixed(2);
+    const formatter = new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency: "usd",
+    });
+    return formatter.format(total);
   };
 
   useEffect(() => {
@@ -171,10 +175,7 @@ function Cart({ title }) {
                   <span>{cart.cartItem.length} items</span>
                 </div>
                 <div className="flex items-center">
-                  <span className="flex">
-                    <MdAttachMoney className="text-2xl" />
-                    {sumTotal()}
-                  </span>
+                  <span className="flex">{sumTotal()}</span>
                 </div>
                 <button className="bg-blue-400/50 text-blue-900 font-bold col-span-2 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-110">
                   Checkout
@@ -263,10 +264,7 @@ function Cart({ title }) {
               <div className="shadow-lg rouned-xl p-10">
                 <div className="flex justify-between py-5">
                   <span>Sub Total</span>
-                  <span className="flex">
-                    <MdAttachMoney className="text-lg" />
-                    {sumTotal()}
-                  </span>
+                  <span className="flex">{sumTotal()}</span>
                 </div>
                 <div className="flex justify-between">
                   <span>Items</span>
