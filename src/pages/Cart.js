@@ -50,7 +50,17 @@ function Cart({ title }) {
     }, 3000);
   };
 
-  console.log(cart.cartItem);
+  // sum qty
+  const sumTotal = () => {
+    let data = cart.cartItem;
+    let total = 0;
+    for (let i = 0; i < data.length; i++) {
+      total +=
+        parseFloat(data[i].price).toFixed(2) * parseInt(data[i].cartQuantity);
+      console.log(parseFloat(total).toFixed(2));
+    }
+    return parseFloat(total).toFixed(2);
+  };
 
   useEffect(() => {
     counter > 0 &&
@@ -122,16 +132,16 @@ function Cart({ title }) {
                   <div className="flex justify-center items-center gap-5 card-body">
                     <button
                       className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
-                      onClick={() => handleAddQty(item.id, item.cartQuantity)}
+                      onClick={() => handleDecreaseQty(item.id)}
                     >
-                      <AiOutlinePlus />
+                      <AiOutlineMinus />
                     </button>
                     <span>{item.cartQuantity}</span>
                     <button
                       className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
-                      onClick={() => handleDecreaseQty(item.id)}
+                      onClick={() => handleAddQty(item.id, item.cartQuantity)}
                     >
-                      <AiOutlineMinus />
+                      <AiOutlinePlus />
                     </button>
                   </div>
                   <div className="flex justify-center items-center flex-col gap-3 card-body">
@@ -163,7 +173,7 @@ function Cart({ title }) {
                 <div className="flex items-center">
                   <span className="flex">
                     <MdAttachMoney className="text-2xl" />
-                    23.5
+                    {sumTotal()}
                   </span>
                 </div>
                 <button className="bg-blue-400/50 text-blue-900 font-bold col-span-2 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-110">
@@ -220,17 +230,17 @@ function Cart({ title }) {
                     <span className="text-sm">{item.title}</span>
                     <div className="flex items-center gap-3">
                       <button
-                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold "
-                        onClick={() => handleAddQty(item.id, item.cartQuantity)}
-                      >
-                        <AiOutlinePlus />
-                      </button>
-                      <span>{item.cartQuantity}</span>
-                      <button
                         className="bg-gray-400/40 py-2 px-2 rounded-full font-bold"
                         onClick={() => handleDecreaseQty(item.id)}
                       >
                         <AiOutlineMinus />
+                      </button>
+                      <span>{item.cartQuantity}</span>
+                      <button
+                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold "
+                        onClick={() => handleAddQty(item.id, item.cartQuantity)}
+                      >
+                        <AiOutlinePlus />
                       </button>
                     </div>
                   </div>
@@ -255,7 +265,7 @@ function Cart({ title }) {
                   <span>Sub Total</span>
                   <span className="flex">
                     <MdAttachMoney className="text-lg" />
-                    30.4
+                    {sumTotal()}
                   </span>
                 </div>
                 <div className="flex justify-between">
