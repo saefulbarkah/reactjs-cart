@@ -9,7 +9,12 @@ import { MdAttachMoney } from "react-icons/md";
 import { useDispatch } from "react-redux/es/exports";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { clearCart, removeItem } from "../features/cartSlice";
+import {
+  addQty,
+  clearCart,
+  decreaseQty,
+  removeItem,
+} from "../features/cartSlice";
 function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
@@ -28,6 +33,13 @@ function Cart({ title }) {
   const handleRemoveItem = (id) => {
     dispatch(removeItem(id));
     console.log("ID : " + id);
+  };
+
+  const handleAddQty = (id) => {
+    dispatch(addQty(id));
+  };
+  const handleDecreaseQty = (id) => {
+    dispatch(decreaseQty(id));
   };
 
   const handleToProduct = () => {
@@ -108,11 +120,17 @@ function Cart({ title }) {
                     <span className="font-bold">{item.title}</span>
                   </div>
                   <div className="flex justify-center items-center gap-5 card-body">
-                    <button className="bg-gray-400/40 py-3 px-3 rounded-full font-bold ">
+                    <button
+                      className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
+                      onClick={() => handleAddQty(item.id, item.cartQuantity)}
+                    >
                       <AiOutlinePlus />
                     </button>
                     <span>{item.cartQuantity}</span>
-                    <button className="bg-gray-400/40 py-3 px-3 rounded-full font-bold">
+                    <button
+                      className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
+                      onClick={() => handleDecreaseQty(item.id)}
+                    >
                       <AiOutlineMinus />
                     </button>
                   </div>
@@ -201,11 +219,17 @@ function Cart({ title }) {
                   <div className="flex flex-col items-start gap-5">
                     <span className="text-sm">{item.title}</span>
                     <div className="flex items-center gap-3">
-                      <button className="bg-gray-400/40 py-2 px-2 rounded-full font-bold ">
+                      <button
+                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold "
+                        onClick={() => handleAddQty(item.id, item.cartQuantity)}
+                      >
                         <AiOutlinePlus />
                       </button>
                       <span>{item.cartQuantity}</span>
-                      <button className="bg-gray-400/40 py-2 px-2 rounded-full font-bold">
+                      <button
+                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold"
+                        onClick={() => handleDecreaseQty(item.id)}
+                      >
                         <AiOutlineMinus />
                       </button>
                     </div>
