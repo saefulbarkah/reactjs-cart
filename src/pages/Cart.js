@@ -9,7 +9,7 @@ import { MdAttachMoney } from "react-icons/md";
 import { useDispatch } from "react-redux/es/exports";
 import AOS from "aos";
 import "aos/dist/aos.css";
-import { clearCart } from "../features/cartSlice";
+import { clearCart, removeItem } from "../features/cartSlice";
 function Cart({ title }) {
   const cart = useSelector((state) => state.cart);
   const [loading, setLoading] = useState(false);
@@ -17,9 +17,17 @@ function Cart({ title }) {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // clear cart
   const handleClear = () => {
     dispatch(clearCart());
     console.log("HEHE");
+  };
+
+  // removing cart
+  // addCart
+  const handleRemoveItem = (id) => {
+    dispatch(removeItem(id));
+    console.log("ID : " + id);
   };
 
   const handleToProduct = () => {
@@ -31,12 +39,6 @@ function Cart({ title }) {
   };
 
   console.log(cart.cartItem);
-
-  const subTotal = () => {
-    const totalCart = cart.cartItem;
-    const sumTotal = totalCart.reduce((a, b) => a * b, totalCart);
-    console.log(sumTotal);
-  };
 
   useEffect(() => {
     counter > 0 &&
@@ -63,7 +65,7 @@ function Cart({ title }) {
         data-aos="fade-up"
       >
         {cart.cartItem.length === 0 ? (
-          <div className="card-empty flex flex-col justify-center items-center border">
+          <div className="card-empty flex flex-col justify-center items-center">
             <p className="text-2xl">Keranjang kosong</p>
             {loading === true && (
               <p className="py-5 px-10 text-center" data-aos="fade-in">
@@ -120,7 +122,10 @@ function Cart({ title }) {
                       {item.price}
                     </span>
                     <div className="flex">
-                      <button className="flex gap-2 items-center bg-red-400/40 py-2 px-3 rounded-lg text-red-700">
+                      <button
+                        className="flex gap-2 items-center bg-red-400/40 py-2 px-3 rounded-lg text-red-700"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
                         <FaTrash />
                       </button>
                     </div>
@@ -211,7 +216,10 @@ function Cart({ title }) {
                       <span className="text-md font-bold">{item.price}</span>
                     </div>
                     <div className="absolute -bottom-5 right-0">
-                      <button className="flex gap-2 items-center bg-red-400/40 py-2 px-5 rounded-lg text-red-700">
+                      <button
+                        className="flex gap-2 items-center bg-red-400/40 py-2 px-5 rounded-lg text-red-700"
+                        onClick={() => handleRemoveItem(item.id)}
+                      >
                         <FaTrash />
                       </button>
                     </div>
