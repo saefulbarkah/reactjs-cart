@@ -20,14 +20,14 @@ const cartSlice = createSlice({
 
       if (itemIndex >= 0) {
         state.cartItem[itemIndex].cartQuantity += 1;
-        toast.info("Quantity product has been added", {
+        toast.info("Kuantitas item di tambahkan", {
           position: "top-center",
           autoClose: 1000,
         });
       } else {
         const tempProduct = { ...action.payload, cartQuantity: 1 };
         state.cartItem.push(tempProduct);
-        toast.success("Product has been added to cart", {
+        toast.success("Item berhasil di tambahkan ke keranjang", {
           position: "top-center",
           autoClose: 1000,
         });
