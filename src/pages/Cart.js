@@ -201,7 +201,7 @@ function Cart({ title }) {
             )}
             <div className="cart-shopping py-5">
               <div onClick={handleToProduct}>
-                <button className="bg-blue-600 py-3 shadow-xl rounded-lg px-5 flex text-white gap-2 items-center font-semibold hover:bg-blue-700 transition">
+                <button className="bg-blue-600 py-3 shadow-md rounded-lg px-5 flex text-white gap-2 items-center font-semibold hover:bg-blue-700 transition">
                   {loading ? (
                     <AiOutlineLoading3Quarters className="animate-spin text-xl font-bold transition-all" />
                   ) : (
@@ -220,7 +220,7 @@ function Cart({ title }) {
             <div className="grid gap-5 grid-rows-1 py-10">
               {cart.cartItem.map((item, i) => (
                 <div
-                  className="grid grid-cols-3 shadow-lg rounded-xl py-5"
+                  className="grid grid-cols-3 shadow-md rounded-xl py-5"
                   key={i}
                 >
                   <div className="flex items-center justify-center">
