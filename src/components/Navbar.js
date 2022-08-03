@@ -16,7 +16,7 @@ function Navbar() {
   });
   return (
     <>
-      <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 hidden md:block">
+      <header className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-md sticky top-0 z-50 hidden md:block">
         <nav className="container justify-between flex  py-5 items-center mx-auto">
           <div className="flex items-center gap-2">
             <img className="w-[10%]" src="./assets/medusa.svg" alt="web" />

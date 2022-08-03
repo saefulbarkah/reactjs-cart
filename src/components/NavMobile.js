@@ -15,7 +15,7 @@ function NavMobile() {
   });
   return (
     <>
-      <header className="bg-white/70 backdrop-blur-sm shadow-md sticky top-0 z-50 md:hidden flex flex-col">
+      <header className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-md shadow-md sticky top-0 z-50 md:hidden flex flex-col">
         <nav className="container flex justify-center py-5 items-center mx-auto gap-2">
           <img
             className="flex items-center gap-5 font-semibold text-lg w-[10%]"
@@ -25,7 +25,7 @@ function NavMobile() {
           <span className="text-2xl font-semibold">Shopping App</span>
         </nav>
       </header>
-      <div className="nav-mobile bg-white/50 border-t border-gray-300 rounded-tr-full rounded-tl-full backdrop-blur-sm drop-shadow-xl fixed bottom-0 w-full py-5 z-50 md:hidden flex flex-col">
+      <div className="nav-mobile bg-white/50 dark:bg-slate-900/70 backdrop-blur-md  drop-shadow-xl fixed bottom-0 w-full py-5 z-50 md:hidden flex flex-col">
         <ul className="flex gap-5 text-lg font-semibold items-center justify-around transition-all">
           <NavLink to="/">
             {({ isActive }) => (
@@ -46,7 +46,7 @@ function NavMobile() {
               <div
                 className={`flex items-center flex-col justify-center transition ease-in-out duration-150 drop-shadow-lg active:bg-pink-500/20 rounded-lg px-2 ${
                   isActive
-                    ? "text-pink-500 scale-100 -translate-y-1 bg-pink-500/10"
+                    ? "text-pink-500 scale-100 bg-pink-500/10"
                     : "text-gray-400"
                 }`}
               >

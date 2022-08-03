@@ -92,7 +92,9 @@ function Cart({ title }) {
       >
         {cart.cartItem.length === 0 ? (
           <div className="card-empty flex flex-col justify-center items-center">
-            <p className="text-2xl">Keranjang kosong</p>
+            <p className="text-2xl text-slate-900 dark:text-white">
+              Keranjang kosong
+            </p>
             {loading === true && (
               <p className="py-5 px-10 text-center" data-aos="fade-in">
                 Anda akan di arahkan ke halaman product selama
@@ -113,11 +115,13 @@ function Cart({ title }) {
             </div>
           </div>
         ) : (
-          <div className="card shadow-lg p-10 rounded-xl">
+          <div className="card shadow-lg py-10 px-20 rounded-3xl dark:bg-gray-800">
             <div className="card-top flex justify-between items-center">
-              <span className="title font-bold text-xl">Keranjang</span>
+              <span className="title font-bold text-xl text-slate-900 dark:text-white">
+                Keranjang
+              </span>
               <button
-                className="flex drop-shadow-lg text-white bg-red-500 px-5 py-2 rounded-xl gap-3 items-center hover:scale-110 transition ease-in-out duration-300"
+                className="flex drop-shadow-lg text-white bg-rose-500 dark:bg-rose-700/20 dark:border dark:border-rose-500 dark:text-rose-300 px-5 py-2 rounded-xl gap-3 items-center hover:scale-110 transition ease-in-out duration-300"
                 onClick={handleClear}
               >
                 <span className="text-sm">Hapus keranjang</span>
@@ -135,14 +139,14 @@ function Cart({ title }) {
                   </div>
                   <div className="flex justify-center items-center gap-5 card-body">
                     <button
-                      className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
+                      className="bg-gray-400/40 dark:bg-cyan-800/20 dark:border dark:border-cyan-500 dark:text-sky-500 py-3 px-3 rounded-full font-bold"
                       onClick={() => handleDecreaseQty(item.id)}
                     >
                       <AiOutlineMinus />
                     </button>
                     <span>{item.cartQuantity}</span>
                     <button
-                      className="bg-gray-400/40 py-3 px-3 rounded-full font-bold"
+                      className="dark:bg-yellow-700/20 dark:border dark:border-yellow-600 dark:text-yellow-300 bg-gray-400/40  py-3 px-3 rounded-full font-bold"
                       onClick={() => handleAddQty(item.id, item.cartQuantity)}
                     >
                       <AiOutlinePlus />
@@ -155,7 +159,7 @@ function Cart({ title }) {
                     </span>
                     <div className="flex">
                       <button
-                        className="flex gap-2 items-center bg-red-400/40 py-2 px-3 rounded-lg text-red-700"
+                        className="flex gap-2 items-center  py-2 px-3 rounded-lg bg-rose-700/40 text-rose-500 dark:border dark:border-rose-600"
                         onClick={() => handleRemoveItem(item.id)}
                       >
                         <FaTrash />
@@ -166,7 +170,7 @@ function Cart({ title }) {
               ))}
             </div>
             <div className="grid grid-cols-4 py-5">
-              <div className="border-b-2 border-gray-300 col-span-4 mt-10 col-end-6"></div>
+              <div className="border-b-2 border-gray-300 dark:border-slate-600 col-span-4 mt-10 col-end-6"></div>
             </div>
             <div className="flex justify-end py-10">
               <div className="grid grid-cols-2 gap-14">
@@ -177,7 +181,7 @@ function Cart({ title }) {
                 <div className="flex items-center">
                   <span className="flex">{sumTotal()}</span>
                 </div>
-                <button className="bg-blue-400/50 text-blue-900 font-bold col-span-2 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-110">
+                <button className="bg-blue-400/50 text-blue-900 dark:bg-fuchsia-800/20 dark:text-fuchsia-500 dark:hover:bg-fuchsia-600 dark:hover:text-white dark:border dark:border-fuchsia-600 col-span-2 py-2 rounded-xl hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-300 hover:scale-110">
                   Checkout
                 </button>
               </div>
@@ -221,7 +225,7 @@ function Cart({ title }) {
             <div className="grid gap-5 grid-rows-1 py-10">
               {cart.cartItem.map((item, i) => (
                 <div
-                  className="grid grid-cols-3 shadow-md rounded-xl py-5"
+                  className="grid grid-cols-3 shadow-md rounded-3xl py-5 dark:bg-gray-800"
                   key={i}
                 >
                   <div className="flex items-center justify-center">
@@ -252,7 +256,7 @@ function Cart({ title }) {
                     </div>
                     <div className="absolute -bottom-5 right-0">
                       <button
-                        className="flex gap-2 items-center bg-red-400/40 py-2 px-5 rounded-lg text-red-700"
+                        className="flex gap-2 items-center bg-rose-700/40 text-rose-500 dark:border dark:border-rose-600 py-2 px-5 rounded-lg"
                         onClick={() => handleRemoveItem(item.id)}
                       >
                         <FaTrash />
@@ -261,7 +265,7 @@ function Cart({ title }) {
                   </div>
                 </div>
               ))}
-              <div className="shadow-lg rouned-xl p-10">
+              <div className="shadow-lg rouned-xl p-10 dark:bg-gray-800 rounded-3xl">
                 <div className="flex justify-between py-5">
                   <span>Sub Total</span>
                   <span className="flex">{sumTotal()}</span>
@@ -271,11 +275,11 @@ function Cart({ title }) {
                   <span>{cart.cartItem.length}</span>
                 </div>
                 <div className="flex flex-col items-center justify-center py-5 gap-5">
-                  <button className="bg-blue-400/50 text-blue-900 font-bold col-span-2 py-3 rounded-xl hover:bg-blue-500 hover:text-white transition-all ease-in-out duration-300 w-full hover:scale-110">
+                  <button className="bg-blue-400/50 text-blue-900 font-bold col-span-2 py-3 rounded-xl hover:bg-blue-500 dark:bg-fuchsia-800/20 dark:text-fuchsia-500 dark:hover:bg-fuchsia-600 dark:hover:text-white dark:border dark:border-fuchsia-600 hover:text-white transition-all ease-in-out duration-300 w-full hover:scale-110">
                     Checkout
                   </button>
                   <button
-                    className="bg-red-400/50 text-red-900 font-bold col-span-2 py-3 rounded-xl hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 w-full hover:scale-110"
+                    className="text-white bg-rose-500 dark:bg-rose-700/20 dark:border dark:border-rose-500 dark:text-rose-300  col-span-2 py-3 rounded-xl hover:bg-red-500 hover:text-white transition-all ease-in-out duration-300 w-full hover:scale-110"
                     onClick={handleClear}
                   >
                     Hapus keranjang
