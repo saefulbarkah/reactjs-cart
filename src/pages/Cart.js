@@ -225,7 +225,7 @@ function Cart({ title }) {
             <div className="grid gap-5 grid-rows-1 py-10">
               {cart.cartItem.map((item, i) => (
                 <div
-                  className="grid grid-cols-3 shadow-md rounded-3xl py-5 dark:bg-gray-800"
+                  className="grid grid-cols-3 shadow-md rounded-lg py-5 dark:bg-gray-800"
                   key={i}
                 >
                   <div className="flex items-center justify-center">
@@ -235,14 +235,14 @@ function Cart({ title }) {
                     <span className="text-sm">{item.title}</span>
                     <div className="flex items-center gap-3">
                       <button
-                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold"
+                        className="bg-gray-400/40 dark:bg-cyan-800/20 dark:border dark:border-cyan-500 dark:text-sky-500 py-2 px-2 rounded-full font-bold"
                         onClick={() => handleDecreaseQty(item.id)}
                       >
                         <AiOutlineMinus />
                       </button>
                       <span>{item.cartQuantity}</span>
                       <button
-                        className="bg-gray-400/40 py-2 px-2 rounded-full font-bold "
+                        className="dark:bg-yellow-700/20 dark:border dark:border-yellow-600 dark:text-yellow-300 bg-gray-400/40 py-2 px-2 rounded-full font-bold "
                         onClick={() => handleAddQty(item.id, item.cartQuantity)}
                       >
                         <AiOutlinePlus />

@@ -39,7 +39,7 @@ function App() {
     <div className="App transition">
       <ToastContainer />
       <Navbar />
-      <div className="main container mx-auto mb-10">
+      <div className="main md:container md:mx-auto mb-10">
         <Routes>
           <Route exact path="/" element={<Products title="Product" />}></Route>
           <Route exact path="/cart" element={<Cart title="Cart" />}></Route>

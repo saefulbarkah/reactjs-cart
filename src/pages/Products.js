@@ -54,34 +54,34 @@ function Products({ title }) {
           Produk
         </h2>
         {loading === true && (
-          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 md:mx-0 mx-6">
             <div
-              className="card shadow-xl rounded-3xl w-full h-[397px] bg-gray-800"
+              className="card shadow-xl rounded-3xl w-full h-[397px] dark:bg-gray-800"
               data-aos="fade-up"
             >
               <LoaderProduct />
             </div>
             <div
-              className="card shadow-xl rounded-3xl w-full h-[397px] bg-gray-800"
+              className="card shadow-xl rounded-3xl w-full h-[397px] dark:bg-gray-800"
               data-aos="fade-up"
             >
               <LoaderProduct />
             </div>
             <div
-              className="card shadow-xl rounded-3xl w-full h-[397px] bg-gray-800"
+              className="card shadow-xl rounded-3xl w-full h-[397px] dark:bg-gray-800"
               data-aos="fade-up"
             >
               <LoaderProduct />
             </div>
             <div
-              className="card shadow-xl rounded-3xl w-full h-[397px] bg-gray-800"
+              className="card shadow-xl rounded-3xl w-full h-[397px] dark:bg-gray-800"
               data-aos="fade-up"
             >
               <LoaderProduct />
             </div>
           </div>
         )}
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4 md:mx-0 mx-6">
           {loading === false &&
             products.map((item, i) => (
               <div
